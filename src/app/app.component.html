@@ -1,0 +1,17 @@
+<div>
+  <h1>Test 3</h1>
+  <button (click)="toggleContent()">Display details</button>
+  <p *ngIf="contentDisplay; else nodata">
+    This is a paragraph.
+  </p>
+  <ng-template #nodata>
+    <p>...</p>
+  </ng-template>
+  <ul>
+    <li *ngFor="let log of logs; let index = index;"
+    [ngStyle]="{backgroundColor: getBackgroundColor(index)}"
+    [ngClass]="{textColor: index >= 5}">
+        {{log.action}} at {{log.datetime | date :'shortDate'}}  {{log.datetime | date :'mediumTime'}}
+    </li>
+  </ul>
+</div>
